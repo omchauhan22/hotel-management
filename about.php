@@ -75,30 +75,18 @@
     <div class="container px-4">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper mb-5">
-                <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-                    <img src="images/about/IMG_17352.jpg" class="w-100" alt="">
-                    <h5 class="mt-2">Random name</h5>
-                </div>
-                <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-                    <img src="images/about/IMG_17352.jpg" class="w-100" alt="">
-                    <h5 class="mt-2">Random name</h5>
-                </div>
-                <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-                    <img src="images/about/IMG_17352.jpg" class="w-100" alt="">
-                    <h5 class="mt-2">Random name</h5>
-                </div>
-                <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-                    <img src="images/about/IMG_17352.jpg" class="w-100" alt="">
-                    <h5 class="mt-2">Random name</h5>
-                </div>
-                <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-                    <img src="images/about/IMG_17352.jpg" class="w-100" alt="">
-                    <h5 class="mt-2">Random name</h5>
-                </div>
-                <div class="swiper-slide bg-white text-center overflow-hidden rounded">
-                    <img src="images/about/IMG_17352.jpg" class="w-100" alt="">
-                    <h5 class="mt-2">Random name</h5>
-                </div>
+                <?php 
+                $about_r = selectALL('team_details');
+                $path = ABOUT_IMG_PATH;
+                while($row = mysqli_fetch_assoc($about_r)){
+                        echo<<<data
+                        <div class="swiper-slide bg-white text-center overflow-hidden rounded">
+                        <img src="$path$row[picture]" class="w-100" alt="">
+                        <h5 class="mt-2">$row[name]</h5>
+                        </div>
+                        data;
+                }
+                ?>
             </div>
             <div class="swiper-pagination"></div>
         </div>

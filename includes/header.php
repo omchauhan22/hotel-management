@@ -1,4 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm stikcy-top">
+<?php
+require('admin/includes/db_config.php');
+require('admin/includes/essentials.php');
+
+$contact_q = "SELECT * FROM `contact_details` WHERE `sr_no`=?";
+$value = [1];
+$contact_r = mysqli_fetch_assoc(select($contact_q, $value, 'i'));
+?>
+
+<nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm stikcy-top">
     <div class="container-fluid">
         <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php">Hotel
         </a>
@@ -8,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active me-2" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link me-2" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link me-2" href="rooms.php">Rooms</a>
