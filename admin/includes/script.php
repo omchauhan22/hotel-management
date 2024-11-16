@@ -16,8 +16,9 @@
     // Optional: Remove the alert automatically after a few seconds
     setTimeout(() => {
       element.remove();
-    }, 3000);
+    }, 2000);
   }
+
 
   function setActive(){
         let navbar = document.getElementById('dashboard-menu');
